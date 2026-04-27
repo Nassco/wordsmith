@@ -1,0 +1,11 @@
+# IDE
+.idea/
+
+# Maven build output
+words/target/
+
+# Go binary
+web/dispatcher
+
+# Env files
+*.env

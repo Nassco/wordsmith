@@ -1,0 +1,17 @@
+services:
+  db:
+    build: ./db
+
+  words:
+    build: ./words
+    depends_on:
+      - db
+
+  web:
+    build: ./web
+    ports:
+      - "${WEB_PORT:-80}:80"
+    volumes:
+      - ./web/static:/static
+    depends_on:
+      - words
