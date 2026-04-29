@@ -21,4 +21,4 @@ COPY --from=jre-build /jre-minimal /jre-minimal
 COPY --from=build /app/target/words.jar /app/words.jar
 COPY --from=build /app/target/dependency /app/dependency
 EXPOSE 8080
-CMD ["java", "-Xmx8m", "-Xms8m", "-jar", "/app/words.jar"]
+CMD ["java", "-Xmx128m", "-Xms64m", "-jar", "/app/words.jar"]
