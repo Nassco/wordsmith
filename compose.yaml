@@ -1,12 +1,18 @@
 services:
   db:
     image: nasco2000/wordsmith:db-latest
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   words:
     build: ./words
     image: nasco2000/wordsmith:words-latest
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   web:
     image: nasco2000/wordsmith:web-latest
