@@ -3,6 +3,7 @@ services:
     image: nasco2000/wordsmith:db-latest
 
   words:
+    build: ./words
     image: nasco2000/wordsmith:words-latest
     depends_on:
       - db
